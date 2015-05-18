@@ -63,6 +63,22 @@
 	    <axis xyz="0 -1 0"/>
 	    <limit effort="1000.0" lower="-3.14" upper="3.14" velocity="0.5"/>
 	  </joint>
+
+	<link name="${prefix}_hand">
+            <visual>
+                <geometry>
+                    <sphere radius="0.01"/>
+                </geometry>
+                <material name="blue"/>
+                <origin rpy="0 0 0" xyz="0 0 -0.045"/>
+            </visual>
+        </link>
+
+	<joint name="${prefix}_RFE" type="fixed">
+	    <parent link="${prefix}_forearm"/>
+	    <child link="${prefix}_hand"/>
+	    <origin rpy="0 0 0" xyz="0.00 0 -0.09"/>
+  	</joint>
     </xacro:macro>
 
     <xacro:macro name="leg" params="prefix reflect">
